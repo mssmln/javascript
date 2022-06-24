@@ -146,4 +146,4 @@ let ratings2 = watchList.map(({ Title:title, imdbRating:rating }) => ({title, ra
 
 console.log(JSON.stringify(ratings));
 console.log(JSON.stringify(ratings1));
-console.log(JSON.stringify(ratings2));
+console.log(JSON.stringify(ratings2, null, 5));
