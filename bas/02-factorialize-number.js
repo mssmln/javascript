@@ -42,7 +42,7 @@ function factorialize2(num) {
 console.log(factorialize2(5));
 
 /* 
-head recursion
+head recursion if the recursive call is the first statement in the function, it's again a tail recursion
                                          num * factorialize(num - 1)
 1st call – factorialize(5) will return    5  * factorialize(5 - 1) // factorialize(4)
 2nd call – factorialize(4) will return    4  * factorialize(4 - 1) // factorialize(3)
@@ -71,8 +71,10 @@ function factorialize3(num, factorial = 1) {
     }
 }
 console.log(factorialize3(4));
-da capire
+
 /*
+tail recursion if the recursive call is the last statement in the function
+
 In tail recursion, you perform your calculations first, and then you execute the recursive call, 
 passing the results of your current step to the next recursive step
 
@@ -142,8 +144,4 @@ It returns the modified array.
 fill(value)
 fill(value, start)
 fill(value, start, end)
-
-
-
-
 */

@@ -7,6 +7,7 @@ function spinalCase(str) {
     return str.replace(regex, "-").toLowerCase();
 
     str = str.replace(/([a-z])([A-Z])/g, "$1 $2");
+    // ?: means non-capturing group
     return str.toLowerCase().split(/(?:_| )+/).join("-");
 
     return str.split(/\s|_|(?=[A-Z])/).join("-").toLowerCase();
