@@ -1,0 +1,33 @@
+<body>
+    <script type="module">
+        import * as d3 from "https://cdn.skypack.dev/d3@7";
+        
+        const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+        const w = 500;
+        const h = 100;
+        const svg = d3.select("body")
+        .append("svg")
+        .attr("width", w)
+        .attr("height", h);
+  
+        svg.selectAll("rect")
+        .data(dataset)
+        .enter()
+        .append("rect")
+        .attr("x", (d, i) => i * 30)
+        /*
+        You may have noticed the bar chart looked like it's upside-down, or inverted. 
+        This is because of how SVG uses (x, y) coordinates.
+        In SVG, the origin point for the coordinates is in the upper-left corner. 
+        An x coordinate of 0 places a shape on the left edge of the SVG area. 
+        A y coordinate of 0 places a shape on the top edge of the SVG area. 
+        Higher x values push the rectangle to the right. Higher y values push the rectangle down.
+        To make the bars right-side-up, you need to change the way the y coordinate is calculated. 
+        It needs to account for both the height of the bar and the total height of the SVG area.
+        The y coordinate that is y = heightOfSVG - heightOfBar would place the bars right-side-up.
+        */
+        .attr("y", (d, i) => h - 3 * d)
+        .attr("width", 25)
+        .attr("height", (d, i) => 3 * d);
+    </script>
+</body>

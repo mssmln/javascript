@@ -1,0 +1,38 @@
+<body>
+    <script type="module">
+        import * as d3 from "https://cdn.skypack.dev/d3@7";
+        
+        const dataset = [
+            [ 34,    78 ],
+            [ 109,   280 ],
+            [ 310,   120 ],
+            [ 79,    411 ],
+            [ 420,   220 ],
+            [ 233,   145 ],
+            [ 333,   96 ],
+            [ 222,   333 ],
+            [ 78,    320 ],
+            [ 21,    123 ]
+        ];
+        const w = 500;
+        const h = 500;
+  
+        const svg = d3.select("body")
+        .append("svg")
+        .attr("width", w)
+        .attr("height", h);
+  
+        svg.selectAll("circle")
+        .data(dataset)
+        .enter()
+        .append("circle")
+        /*
+        A circle in SVG has three main attributes. The cx and cy attributes are the coordinates. 
+        They tell D3 where to position the center of the shape on the SVG canvas. The radius (r attribute) gives the size of the circle.
+        Just like the rect y coordinate, the cy attribute for a circle is measured from the top of the SVG canvas, not from the bottom.
+        */
+        .attr('cx', d => d[0])
+        .attr('cy', d => h - d[1])
+        .attr('r', 5)
+    </script>
+</body>

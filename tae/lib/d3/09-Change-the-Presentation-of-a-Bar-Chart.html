@@ -1,0 +1,31 @@
+<style>
+    .bar {
+      width: 25px;
+      height: 100px;
+      margin: 2px;
+      display: inline-block;
+      background-color: blue;
+    }
+</style>
+<body>
+    <script type="module">
+        import * as d3 from "https://cdn.skypack.dev/d3@7";
+        
+        const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+  
+        /*
+        Add space between each bar to visually separate them, 
+        which is done by adding a margin to the CSS for the bar class
+
+        Increase the height of the bars to better show the difference in values, 
+        which is done by multiplying the value by a number to scale the height
+        */
+        
+        d3.select("body").selectAll("div")
+        .data(dataset)
+        .enter()
+        .append("div")
+        .attr("class", "bar")
+        .style("height", (d) => (d * 10 + "px")) 
+    </script>
+</body>

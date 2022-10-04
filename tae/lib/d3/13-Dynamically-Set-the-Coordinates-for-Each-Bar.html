@@ -1,0 +1,32 @@
+<body>
+    <script type="module">
+        import * as d3 from "https://cdn.skypack.dev/d3@7";
+        
+        const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+        const w = 500;
+        const h = 100;
+        const svg = d3.select("body")
+        .append("svg")
+        .attr("width", w)
+        .attr("height", h);
+  
+        svg.selectAll("rect")
+        .data(dataset)
+        .enter()
+        .append("rect")
+        /*
+        The placement of a rectangle is handled by the x and y attributes. 
+        They tell D3 where to start drawing the shape in the svg area. 
+        The last challenge set them each to 0, so every bar was placed in the upper-left corner.
+        For a bar chart, all of the bars should sit on the same vertical level, 
+        which means the y value stays the same (at 0) for all bars. 
+        The x value, however, needs to change as you add new bars. 
+        Remember that larger x values push items farther to the right. 
+        As you go through the array elements in dataset, the x value should increase.
+        */
+        .attr("x", (d, i) => i * 30)
+        .attr("y", 0)
+        .attr("width", 25)
+        .attr("height", 100);
+    </script>
+</body>

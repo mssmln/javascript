@@ -1,0 +1,23 @@
+<body>
+    <script type="module">
+        import * as d3 from "https://cdn.skypack.dev/d3@7";
+        
+        const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+  
+        /*
+        The data() method is used on a selection of DOM elements to attach the data to those elements. 
+        The data set is passed as an argument to the method.
+        A common workflow pattern is to create a new element in the document for each piece of data in the set. 
+        D3 has the enter() method for this purpose.
+        When enter() is combined with the data() method, it looks at the selected elements from the page 
+        and compares them to the number of data items in the set. 
+        If there are fewer elements than data items, it creates the missing elements.
+        */
+        
+        d3.select('body')
+        .selectAll('h2') // returns an empty selection
+        .data(dataset) // reviews the dataset and runs the following code n times
+        .enter() // sees there are no h2 elements on the page, but it needs 9 (one for each piece of data in dataset)
+        .append('h2').text('New Title')
+    </script>
+</body>

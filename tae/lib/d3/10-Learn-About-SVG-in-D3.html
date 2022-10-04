@@ -1,0 +1,24 @@
+<style>
+    svg {
+      background-color: pink;
+    }
+</style>
+<body>
+    <script type="module">
+        import * as d3 from "https://cdn.skypack.dev/d3@7";
+        
+        const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+        const w = 500;
+        const h = 100;
+  
+        /*
+        SVG stands for Scalable Vector Graphics.
+        Here "scalable" means that, if you zoom in or out on an object, 
+        it would not appear pixelated. It scales with the display system, 
+        whether it's on a small mobile screen or a large TV monitor.
+        */
+        const svg = d3.select("body").append('svg')
+        .style('width', w) // or attr
+        .style('height', h) // or attr
+    </script>
+</body>

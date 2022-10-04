@@ -1,0 +1,28 @@
+<body>
+    <script type="module">
+        import * as d3 from "https://cdn.skypack.dev/d3@7";
+        
+        const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+        const w = 500;
+        const h = 100;
+  
+        const svg = d3.select("body")
+        .append("svg")
+        .attr("width", w)
+        .attr("height", h)
+        /*
+        The next step is to create a shape to put in the svg area. 
+        When you place a shape into the svg area, you can specify where it goes with x and y coordinates. 
+        The origin point of (0, 0) is in the upper-left corner. 
+        Positive values for x push the shape to the right, and positive values for y push the shape down from the origin point.
+        An SVG rect has four attributes. 
+        There are the x and y coordinates for where it is placed in the svg area. 
+        It also has a height and width to specify the size.
+        */
+        .append('rect')
+        .attr('width', 25)
+        .attr('height', h)
+        .attr('x', 0)
+        .attr('y', 0)
+    </script>
+</body>
